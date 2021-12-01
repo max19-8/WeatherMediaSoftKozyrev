@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    ////delete
+    <string name="lisbon">Ульяновск</string>
+    <string name="feels_like">Ощущается как: %1$s°C</string>
+    <string name="temp_min">Минимальная температура: %1$s°C</string>
+    <string name="temp_max">Максимальная температура: %1$s°C</string>
+    <string name="wind_speed">Скорость ветра: %1$sKm/h</string>
+
+</resources>
