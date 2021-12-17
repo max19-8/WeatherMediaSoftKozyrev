@@ -13,12 +13,10 @@
         android:layout_height="?attr/actionBarSize"
         app:title="@string/app_name"
         app:titleTextColor="@color/white"
-        android:background="@drawable/app_color"/>
-
-
+        android:background="@drawable/background_detail"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCities"
+        android:id="@+id/recycler_view_cities"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

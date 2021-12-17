@@ -1,61 +1,45 @@
 package com.example.weathermediasoftkozyrev.ui
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.weathermediasoftkozyrev.R
 import com.example.weathermediasoftkozyrev.adapter.CityAdapter
 import com.example.weathermediasoftkozyrev.databinding.FragmentListBinding
-import com.example.weathermediasoftkozyrev.mock.NewCity
-import com.example.weathermediasoftkozyrev.mock.NewCityItem
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import java.io.IOException
+import com.example.weathermediasoftkozyrev.utils.itemTouchHelper
+import com.example.weathermediasoftkozyrev.viewmodel.ListCityViewModel
 
-class WeatherListFragment : Fragment() {
+class WeatherListFragment : BaseFragment<FragmentListBinding>(){
 
-    private var _binding: FragmentListBinding? = null
-    private val binding get() = _binding!!
+    override fun getViewBinding(): FragmentListBinding =
+        FragmentListBinding.inflate(layoutInflater)
+
     private lateinit var cityAdapter: CityAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentListBinding.inflate(layoutInflater, container, false)
+    private val viewModel: ListCityViewModel by viewModels()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
         setupRecyclerView()
-        return binding.root
     }
 
-    private fun setupRecyclerView() {
-        val jsonFileString = getJsonDataFromAsset(requireContext(), "city_list.json")
-        val gson = Gson()
-        val listPersonType = object : TypeToken<NewCity>() {}.type
-        val cities: List<NewCityItem> = gson.fromJson(jsonFileString, listPersonType)
-        cities.forEachIndexed { _, city -> Log.i("data", "> Item ${city.country}") }
+    private fun setupRecyclerView(){
+        val recyclerVIew = binding.recyclerViewCities
         cityAdapter = CityAdapter(this)
-        binding.rvCities.apply {
-            adapter = cityAdapter
+        recyclerVIew.apply {
             layoutManager = LinearLayoutManager(activity)
+            setHasFixedSize(true)
+            adapter = cityAdapter
+        }
+        viewModel.getListCities().observe(viewLifecycleOwner, {cities ->
             cityAdapter.submitList(cities)
-        }
+        })
+        val itemTouchHelperCallback = ItemTouchHelper(itemTouchHelper)
+        itemTouchHelperCallback.attachToRecyclerView(recyclerVIew)
     }
-    private fun getJsonDataFromAsset(context: Context, fileName: String): String? {
-            val jsonString: String
-            try {
-                jsonString = context.assets.open(fileName).bufferedReader().use { it.readText() }
-            } catch (ioException: IOException) {
-                ioException.printStackTrace()
-                return null
-            }
-            return jsonString
-        }
 }
 

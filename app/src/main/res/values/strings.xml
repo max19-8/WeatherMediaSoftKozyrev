@@ -2,12 +2,41 @@
     <string name="app_name">WeatherApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
     ////delete
-    <string name="lisbon">Ульяновск</string>
+    <string name="temp">%1$s°C</string>
+    <string name="pressure_text">давление</string>
+    <string name="pressure_value">%1$s мбар</string>
+    <string name="wind_speed_value">%1$s км/ч</string>
+    <string name="wind_speed_text">ветер</string>
+    <string name="clouds_value">%1$s %%</string>
+    <string name="clouds_text">облачность</string>
+    <string name="sunrise_value">%1$s</string>
+    <string name="sunrise_text">восход</string>
+    <string name="sunset_value">%1$s</string>
+    <string name="sunset_text">закат</string>
     <string name="feels_like">Ощущается как: %1$s°C</string>
     <string name="temp_min">Минимальная температура: %1$s°C</string>
     <string name="temp_max">Максимальная температура: %1$s°C</string>
-    <string name="wind_speed">Скорость ветра: %1$sKm/h</string>
+    <string name="wind_speed">скорость ветра: %1$sKm/h</string>
+    <string name="advanced_forecast_text">Расширенный прогноз</string>
+    <string name="temp_morning_text">утро</string>
+    <string name="temp_day_text">день</string>
+    <string name="temp_evening_text">вечер</string>
+    <string name="temp_night_text">ночь</string>
+    <string name="dew_point_text">точка росы</string>
+    <string name="desc_icon">weather_desc_icon</string>
+    <string name="text_view_all_day_temp">Температура в течение дня</string>
+    <string name="icon_morning">icon_morning</string>
+    <string name="icon_day">icon_day</string>
+    <string name="icon_evening">icon_evening</string>
+    <string name="icon_night">icon_night</string>
+    <string name="icon_sunrise">icon_sunrise</string>
+    <string name="icon_pressure">icon_pressure</string>
+    <string name="icon_wind">icon_wind</string>
+    <string name="icon_clouds">icon_clouds</string>
+    <string name="icon_dew_point">icon_dew_point</string>
+    <string name="icon_sunset">icon_sunset</string>
+    <string name="weather_day">Температура днем: %1$s°C </string>
+    <string name="weather_evening">Температура вечером: %1$s°C </string>
 
 </resources>
