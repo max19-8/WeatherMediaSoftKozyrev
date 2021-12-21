@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="app_margin">16dp</dimen>
+    <dimen name="app_small_margin">8dp</dimen>
     <dimen name="text_size_large">40sp</dimen>
+    <dimen name="text_size_app">16sp</dimen>
+    <dimen name="text_size_small_app">12sp</dimen>
+    <dimen name="text_size_big_app">24sp</dimen>
+    <dimen name="text_size_detail_fragment_city">30sp</dimen>
 </resources>

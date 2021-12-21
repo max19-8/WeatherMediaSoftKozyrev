@@ -2,14 +2,13 @@ package com.example.weathermediasoftkozyrev.db
 
 import android.content.Context
 import android.content.res.Resources
-import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.weathermediasoftkozyrev.R
-import com.example.weathermediasoftkozyrev.model.Daily
+import com.example.weathermediasoftkozyrev.model.City
 import com.example.weathermediasoftkozyrev.model.Responses
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -17,7 +16,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 
-@Database(entities = [CityEntity::class,Responses::class],version = 1,exportSchema = false)
+@Database(entities = [City::class,Responses::class],version = 1,exportSchema = false)
 @TypeConverters(RoomConverter::class)
 abstract class WeatherDatabase:RoomDatabase(){
     abstract fun weatherDao(): WeatherDao
@@ -56,8 +55,8 @@ abstract class WeatherDatabase:RoomDatabase(){
             val jsonString = resources.openRawResource(R.raw.city_list).bufferedReader().use {
                 it.readText()
             }
-            val typeToken = object : TypeToken<List<CityEntity>>() {}.type
-            val citiesList = Gson().fromJson<List<CityEntity>>(jsonString, typeToken)
+            val typeToken = object : TypeToken<List<City>>() {}.type
+            val citiesList = Gson().fromJson<List<City>>(jsonString, typeToken)
             citiesDao.insertAllCities(citiesList)
         }
     }

@@ -26,6 +26,9 @@
             android:name="lon"
             app:argType="float" />
         <argument
+            android:name="cityId"
+            app:argType="integer" />
+        <argument
             android:name="cityName"
             app:argType="string" />
     </fragment>

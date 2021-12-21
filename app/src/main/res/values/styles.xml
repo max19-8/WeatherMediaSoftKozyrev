@@ -12,4 +12,21 @@
         <item name="android:background">@color/white</item>
         <item name="android:layout_marginTop">8dp</item>
     </style>
+
+    <style name="text_view_detail_image">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="text_view_detail_max_min_temp" parent="text_view_detail">
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="image_detail_icon">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
 </resources>

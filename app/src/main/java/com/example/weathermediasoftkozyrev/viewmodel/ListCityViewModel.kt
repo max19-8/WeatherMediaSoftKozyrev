@@ -2,8 +2,8 @@ package com.example.weathermediasoftkozyrev.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.weathermediasoftkozyrev.db.CityEntity
 import com.example.weathermediasoftkozyrev.db.WeatherDatabase
+import com.example.weathermediasoftkozyrev.model.City
 import com.example.weathermediasoftkozyrev.repository.ListCityRepository
 
 class ListCityViewModel (
@@ -16,6 +16,6 @@ class ListCityViewModel (
             .weatherDao()
         repository = ListCityRepository(citiesDao)
     }
-     fun getListCities(): LiveData<List<CityEntity>> =
+     fun getListCities(): LiveData<List<City>> =
          repository.getCities()
 }

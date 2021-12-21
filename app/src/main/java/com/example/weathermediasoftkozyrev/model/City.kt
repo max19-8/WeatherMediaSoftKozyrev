@@ -1,12 +1,19 @@
 package com.example.weathermediasoftkozyrev.model
 
-data class City(
-    val coord: Coord,
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "cities_db")
+data class City (
+    @PrimaryKey(autoGenerate = false)
+    val _id: Int ,
+    @Embedded
+    val coord: CoordEntity,
     val country: String,
-    val _id: Int,
     val name: String,
-    val population: Int,
-    val sunrise: Int,
-    val sunset: Int,
-    val timezone: Int
+)
+ class CoordEntity(
+    val lat: Double,
+    val lon: Double
 )

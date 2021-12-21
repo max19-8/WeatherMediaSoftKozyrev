@@ -1,13 +1,13 @@
 package com.example.weathermediasoftkozyrev.utils
-import android.content.Context
+
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
-import android.icu.util.MeasureUnit.KELVIN
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
+import android.view.View
+import android.widget.Toast
 import androidx.core.graphics.drawable.toBitmap
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import java.io.InputStream
 import java.lang.Exception
 import java.net.URL
@@ -55,31 +55,6 @@ fun getCurrentDateTime(): Date {
     return Calendar.getInstance().time
 }
 
-//check internet connection
-
-
-fun isNetworkAvailable(context: Context): Boolean {
-    // It answers the queries about the state of network connectivity.
-    val connectivityManager =
-        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-    val network = connectivityManager.activeNetwork ?: return false
-    val activeNetWork = connectivityManager.getNetworkCapabilities(network) ?: return false
-    return when {
-        activeNetWork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
-        activeNetWork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
-        activeNetWork.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
-        else -> false
-    }
-}
-
-
-
-/**
- * Get formatted local time for the sunrise/sunset
- */
-fun Int.getTime(): String? {
-    val date = Date(this * 1000L)
-    val sdf = SimpleDateFormat("h:mm a", Locale.getDefault())
-    sdf.timeZone = TimeZone.getDefault()
-    return sdf.format(date)
+fun showSnackBar(view: View, message:String){
+    Snackbar.make(view, message, Snackbar.LENGTH_LONG).show()
 }

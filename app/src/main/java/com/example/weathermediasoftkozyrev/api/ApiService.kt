@@ -19,7 +19,6 @@ interface ApiService {
         @Query(Constants.QUERY_APP_ID) appId: String,
     ): Responses
 
-
 }
 
 

@@ -17,7 +17,7 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.example.weathermediasoftkozyrev.MainActivity
 import com.example.weathermediasoftkozyrev.R
-import com.example.weathermediasoftkozyrev.repository.CityWeatherRepository
+import com.example.weathermediasoftkozyrev.repository.NotifyRepository
 import com.example.weathermediasoftkozyrev.utils.getCurrentDateTime
 import com.example.weathermediasoftkozyrev.utils.loadImageFromURL
 import com.example.weathermediasoftkozyrev.utils.toString
@@ -33,23 +33,21 @@ class WeatherNotifyWorker(val context: Context, workerParameters: WorkerParamete
         const val CHANNEL_NAME = "channel weather notification"
         const val CHANNEL_DESCRIPTION = "channel description"
     }
-
     override suspend fun doWork(): Result {
         preferences = context.getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE)
         val lat = preferences.getFloat("LAT", 54.333332F)
         val lon = preferences.getFloat("LON", 48.400002F)
         val city = preferences.getString("CITY", "Ульяновск")
-      //  val current = CityWeatherRepository().getDetail(lat, lon)
-      //  val temp = context.getString(R.string.temp, current.current.temp.toInt().toString())
-    //    val icon = "https://openweathermap.org/img/wn/" + current.current.weather[0].icon + "@2x.png"
-   //     val load = loadImageFromURL(icon, name = null)
-     //   val desc = current.current.weather[0].description
+        val current = NotifyRepository().getNotify(lat, lon)
+        val temp = context.getString(R.string.temp, current.current.temp.toInt().toString())
+        val icon = "https://openweathermap.org/img/wn/" + current.current.weather[0].icon + "@2x.png"
+        val load = loadImageFromURL(icon, name = null)
+        val desc = current.current.weather[0].description
         val date = getCurrentDateTime()
         val dateInString = date.toString("HH:mm")
-      //  showNotification(city, temp, load, desc, dateInString)
+                showNotification(city, temp, load, desc, dateInString)
         return Result.success()
     }
-
     private fun showNotification(city: String?, temp: String, largeIcon: Bitmap?, desc: String, time: String
     ) {
         val notificationLayout =

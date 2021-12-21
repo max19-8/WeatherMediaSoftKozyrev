@@ -5,7 +5,9 @@ object Constants {
     const val ENDPOINT_CITY_WEATHER = "data/2.5/onecall?"
     const val QUERY_ID = "id"
     const val QUERY_APP_ID = "appid"
-    const val API_KEY = "43a0c32904fac11860d03b87c47495e9"
+    const val API_KEY = "765c97e50551201b348274233bed2631"
+ //   43a0c32904fac11860d03b87c47495e9
+  //  765c97e50551201b348274233bed2631
     const val CNT = "cnt"
     const val cnt = 2
     const val QUERY_LAT = "lat"
@@ -16,4 +18,5 @@ object Constants {
     const val units = "metric"
     const val DEFAULT_LANG = "lang"
     const val language = "ru"
+
 }
