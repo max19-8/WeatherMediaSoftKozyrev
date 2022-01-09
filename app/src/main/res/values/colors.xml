@@ -12,8 +12,4 @@
     <color name="grey">#282828</color>
     <color name="purple100">#7E57C2</color>
     <color name="light_grey">#695F5F</color>
-
-    /customView
-    <color name="colorBackgroundCircle">@android:color/darker_gray</color>
-    <color name="colorProgress">#4CAF50</color>
 </resources>

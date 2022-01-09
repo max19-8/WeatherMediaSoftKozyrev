@@ -2,53 +2,54 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="64dp"
-    android:padding="10dp" >
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/image_view_notify_icon"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
+        android:contentDescription="@string/icon_notify_layout"
         android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/text_view_notify_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="1°C"
         android:layout_toEndOf="@id/image_view_notify_icon"
         android:textColor="@color/grey"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:text="1°C" />
 
     <TextView
         android:id="@+id/text_view_notify_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Облачно"
         android:layout_below="@id/text_view_notify_temp"
         android:layout_toEndOf="@id/image_view_notify_icon"
         android:textColor="@color/light_grey"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        tools:text="Облачно" />
 
     <TextView
         android:id="@+id/text_view_notify_city"
         android:layout_width="wrap_content"
-        android:textSize="18sp"
-        tools:text="Москва"
-        android:textColor="@color/grey"
-        android:layout_alignParentTop="true"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/grey"
+        android:textSize="18sp"
+        tools:text="Москва" />
 
     <TextView
         android:id="@+id/text_view_notify_time"
         android:layout_width="wrap_content"
-        android:textColor="@color/grey"
-        tools:text ="03:15"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_view_notify_city"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"/>
+        android:textColor="@color/grey"
+        tools:text="03:15" />
 </RelativeLayout>

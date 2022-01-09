@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,20 +7,19 @@
     android:background="@color/grey"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".ui.DetailFragment">
+    tools:context=".presentation.ui.DetailFragment">
 
     <ImageView
         android:id="@+id/mockDetail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:contentDescription="@string/no_internet_image"
         android:src="@drawable/no_internet_connection"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/no_internet_image" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_view_city_name"
@@ -32,7 +30,8 @@
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ProgressBar
         android:id="@+id/detail_progress_bar"
         style="?android:attr/progressBarStyle"
@@ -41,7 +40,7 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager2"
@@ -51,57 +50,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/detail_progress_bar" />
-
-
-<!--    <TextView-->
-<!--        android:id="@+id/text_view_date"-->
-<!--        android:layout_gravity="end"-->
-<!--        android:text="@string/date"-->
-<!--        style="@style/text_view_detail" />-->
-
-<!--    <ProgressBar-->
-<!--        style="?android:attr/progressBarStyle"-->
-<!--        android:id="@+id/detail_progress_bar"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:visibility="invisible"-->
-<!--        android:layout_marginTop="80dp" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/text_view_city"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="@dimen/app_margin"-->
-<!--        android:textSize="@dimen/text_size_large" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/text_view_temp"-->
-<!--        android:text="@string/temp"-->
-<!--        style="@style/text_view_detail" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/text_view_feels_like"-->
-<!--        android:text="@string/feels_like"-->
-<!--        style="@style/text_view_detail" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/text_view_min_temp"-->
-<!--        style="@style/text_view_detail"-->
-<!--        android:text="@string/temp_min" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/text_view_max_temp"-->
-<!--        style="@style/text_view_detail"-->
-<!--        android:text="@string/temp_max"/>-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/text_view_wind_speed"-->
-<!--        style="@style/text_view_detail"-->
-<!--        android:text="@string/wind_speed" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/text_view_cloudy"-->
-<!--        style="@style/text_view_detail" />-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

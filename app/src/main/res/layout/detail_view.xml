@@ -8,387 +8,388 @@
     android:fillViewport="true"
     android:isScrollContainer="true">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/constraint_detail"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:ignore="ScrollViewSize">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="ScrollViewSize">
 
-    <TextView
-        android:id="@+id/text_view_date"
-        android:layout_gravity="end"
-        android:textSize="@dimen/text_size_big_app"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/text_view_detail_image" />
+        <TextView
+            android:id="@+id/text_view_date"
+            style="@style/text_view_detail_image"
+            android:layout_gravity="end"
+            android:padding="@dimen/app_small_margin"
+            android:textSize="@dimen/text_size_big_app"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/text_view_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/app_small_margin"
+            android:textSize="@dimen/text_size_big_app"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_date" />
 
-    <TextView
-        android:id="@+id/text_view_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/app_small_margin"
-        android:textSize="@dimen/text_size_big_app"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_view_date" />
+        <ImageView
+            android:id="@+id/weather_icon"
+            style="@style/image_detail_icon"
+            android:contentDescription="@string/desc_icon"
+            app:layout_constraintBottom_toBottomOf="@id/text_view_description"
+            app:layout_constraintStart_toEndOf="@id/text_view_description"
+            app:layout_constraintTop_toBottomOf="@id/text_view_date" />
 
+        <TextView
+            android:id="@+id/text_view_max_temp"
+            style="@style/text_view_detail_max_min_temp"
+            android:text="@string/temp_max"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_description" />
 
-    <ImageView
-        android:id="@+id/weather_icon"
-        app:layout_constraintBottom_toBottomOf="@id/text_view_description"
-        app:layout_constraintStart_toEndOf="@id/text_view_description"
-        app:layout_constraintTop_toBottomOf="@id/text_view_date"
-        android:contentDescription="@string/desc_icon"
-        style="@style/image_detail_icon"/>
+        <TextView
+            android:id="@+id/text_view_min_temp"
+            style="@style/text_view_detail_max_min_temp"
+            android:text="@string/temp_min"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_max_temp" />
 
+        <com.example.weathermediasoftkozyrev.presentation.view.CustomView
+            android:id="@+id/custom_view"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="@dimen/app_margin"
+            android:layout_marginBottom="@dimen/app_margin"
+            android:paddingHorizontal="20dp"
+            app:custom_color="@color/purple_500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_min_temp" />
 
+        <TextView
+            android:id="@+id/text_view_humidity_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/humidity_text_detail_view"
+            android:textSize="@dimen/text_size_app"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/custom_view" />
 
-    <TextView
-        android:id="@+id/text_view_max_temp"
-        style="@style/text_view_detail_max_min_temp"
-        android:text="@string/temp_max"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_view_description" />
+        <View
+            android:id="@+id/divider1"
+            style="@style/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_humidity_text" />
 
-    <TextView
-        android:id="@+id/text_view_min_temp"
-        android:text="@string/temp_min"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_view_max_temp"
-        style="@style/text_view_detail_max_min_temp"/>
+        <TextView
+            android:id="@+id/times_day"
+            style="@style/text_view_detail_image"
+            android:layout_marginTop="@dimen/app_small_margin"
+            android:text="@string/text_view_all_day_temp"
+            android:textSize="@dimen/text_size_app"
+            app:layout_constraintBottom_toTopOf="@id/divider2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider1" />
 
-    <com.example.weathermediasoftkozyrev.ui.CustomView
-        android:id="@+id/custom_view"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:paddingHorizontal="20dp"
-        app:custom_color="@color/purple_500"
-        android:layout_marginTop="@dimen/app_margin"
-        android:layout_marginBottom="@dimen/app_margin"
-        app:layout_constraintTop_toBottomOf="@id/text_view_min_temp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <View
+            android:id="@+id/divider2"
+            style="@style/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/times_day" />
 
-    <TextView
-        android:id="@+id/text_view_humidity_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_app"
-        android:text="@string/humidity_text_detail_view"
-        app:layout_constraintTop_toBottomOf="@id/custom_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        <ImageView
+            android:id="@+id/image_morning"
+            style="@style/image_detail_icon"
+            android:contentDescription="@string/icon_morning"
+            android:src="@drawable/morning"
+            app:layout_constraintEnd_toStartOf="@id/image_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
 
-    <View
-        android:id="@+id/divider1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_view_humidity_text"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/divider" />
+        <TextView
+            android:id="@+id/text_view_temp_morning_value"
+            style="@style/text_view_detail_image"
+            android:text="@string/temp"
+            app:layout_constraintEnd_toEndOf="@id/image_morning"
+            app:layout_constraintStart_toStartOf="@id/image_morning"
+            app:layout_constraintTop_toBottomOf="@id/image_morning" />
 
-    <TextView
-        android:id="@+id/times_day"
-        android:text="@string/text_view_all_day_temp"
-        android:textSize="@dimen/text_size_app"
-        android:layout_marginTop="@dimen/app_small_margin"
-        app:layout_constraintBottom_toTopOf="@id/divider2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider1"
-        style="@style/text_view_detail_image"/>
+        <TextView
+            android:id="@+id/text_view_temp_morning_text"
+            style="@style/text_view_detail_image"
+            android:text="@string/temp_morning_text"
+            app:layout_constraintEnd_toEndOf="@id/image_morning"
+            app:layout_constraintStart_toStartOf="@id/image_morning"
+            app:layout_constraintTop_toBottomOf="@id/text_view_temp_morning_value" />
 
-    <View
-        android:id="@+id/divider2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/times_day"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/divider" />
+        <ImageView
+            android:id="@+id/image_day"
+            style="@style/image_detail_icon"
+            android:contentDescription="@string/icon_day"
+            android:src="@drawable/day"
+            app:layout_constraintEnd_toStartOf="@id/image_evening"
+            app:layout_constraintStart_toEndOf="@id/image_morning"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
 
-    <ImageView
-        android:id="@+id/image_morning"
-        android:src="@drawable/morning"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider2"
-        app:layout_constraintEnd_toStartOf="@id/image_day"
-        android:contentDescription="@string/icon_morning"
-        style="@style/image_detail_icon" />
-    <TextView
-        android:id="@+id/text_view_temp_morning_value"
-        android:text="@string/temp"
-        app:layout_constraintStart_toStartOf="@id/image_morning"
-        app:layout_constraintTop_toBottomOf="@id/image_morning"
-        app:layout_constraintEnd_toEndOf="@id/image_morning"
-        style="@style/text_view_detail_image" />
+        <TextView
+            android:id="@+id/text_view_temp_day_value"
+            style="@style/text_view_detail_image"
+            android:text="@string/temp"
+            app:layout_constraintEnd_toEndOf="@id/image_day"
+            app:layout_constraintStart_toStartOf="@id/image_day"
+            app:layout_constraintTop_toBottomOf="@id/image_day" />
 
-    <TextView
-        android:id="@+id/text_view_temp_morning_text"
-        android:text="@string/temp_morning_text"
-        app:layout_constraintStart_toStartOf="@id/image_morning"
-        app:layout_constraintTop_toBottomOf="@id/text_view_temp_morning_value"
-        app:layout_constraintEnd_toEndOf="@id/image_morning"
-        style="@style/text_view_detail_image" />
+        <TextView
+            android:id="@+id/text_view_temp_day_text"
+            style="@style/text_view_detail_image"
+            android:text="@string/temp_day_text"
+            app:layout_constraintEnd_toEndOf="@id/image_day"
+            app:layout_constraintStart_toStartOf="@id/image_day"
+            app:layout_constraintTop_toBottomOf="@id/text_view_temp_day_value" />
 
-    <ImageView
-        android:id="@+id/image_day"
-        android:src="@drawable/day"
-        app:layout_constraintStart_toEndOf="@id/image_morning"
-        app:layout_constraintEnd_toStartOf="@id/image_evening"
-        app:layout_constraintTop_toBottomOf="@id/divider2"
-        android:contentDescription="@string/icon_day"
-        style="@style/image_detail_icon"/>
+        <ImageView
+            android:id="@+id/image_evening"
+            style="@style/image_detail_icon"
+            android:contentDescription="@string/icon_evening"
+            android:src="@drawable/evening"
+            app:layout_constraintEnd_toStartOf="@id/image_night"
+            app:layout_constraintStart_toEndOf="@id/image_day"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
 
-    <TextView
-        android:id="@+id/text_view_temp_day_value"
-        android:text="@string/temp"
-        app:layout_constraintEnd_toEndOf="@id/image_day"
-        app:layout_constraintStart_toStartOf="@id/image_day"
-        app:layout_constraintTop_toBottomOf="@id/image_day"
-        style="@style/text_view_detail_image" />
+        <TextView
+            android:id="@+id/text_view_temp_evening_value"
+            style="@style/text_view_detail_image"
+            android:text="@string/temp"
+            app:layout_constraintEnd_toEndOf="@id/image_evening"
+            app:layout_constraintStart_toStartOf="@id/image_evening"
+            app:layout_constraintTop_toBottomOf="@id/image_evening" />
 
-    <TextView
-        android:id="@+id/text_view_temp_day_text"
-        android:text="@string/temp_day_text"
-        app:layout_constraintEnd_toEndOf="@id/image_day"
-        app:layout_constraintStart_toStartOf="@id/image_day"
-        app:layout_constraintTop_toBottomOf="@id/text_view_temp_day_value"
-        style="@style/text_view_detail_image" />
+        <TextView
+            android:id="@+id/text_view_temp_evening_text"
+            style="@style/text_view_detail_image"
+            android:text="@string/temp_evening_text"
+            app:layout_constraintEnd_toEndOf="@id/image_evening"
+            app:layout_constraintStart_toStartOf="@id/image_evening"
+            app:layout_constraintTop_toBottomOf="@id/text_view_temp_evening_value" />
 
-    <ImageView
-        android:id="@+id/image_evening"
-        android:src="@drawable/evening"
-        app:layout_constraintStart_toEndOf="@id/image_day"
-        app:layout_constraintEnd_toStartOf="@id/image_night"
-        app:layout_constraintTop_toBottomOf="@id/divider2"
-        android:contentDescription="@string/icon_evening"
-        style="@style/image_detail_icon"/>
-    <TextView
-        android:id="@+id/text_view_temp_evening_value"
-        android:text="@string/temp"
-        app:layout_constraintStart_toStartOf="@id/image_evening"
-        app:layout_constraintEnd_toEndOf="@id/image_evening"
-        app:layout_constraintTop_toBottomOf="@id/image_evening"
-        style="@style/text_view_detail_image" />
+        <ImageView
+            android:id="@+id/image_night"
+            style="@style/image_detail_icon"
+            android:contentDescription="@string/icon_night"
+            android:src="@drawable/night"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image_evening"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
 
-    <TextView
-        android:id="@+id/text_view_temp_evening_text"
-        android:text="@string/temp_evening_text"
-        app:layout_constraintStart_toStartOf="@id/image_evening"
-        app:layout_constraintEnd_toEndOf="@id/image_evening"
-        app:layout_constraintTop_toBottomOf="@id/text_view_temp_evening_value"
-        style="@style/text_view_detail_image" />
-    <ImageView
-        android:id="@+id/image_night"
-        android:src="@drawable/night"
-        app:layout_constraintStart_toEndOf="@id/image_evening"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider2"
-        android:contentDescription="@string/icon_night"
-        style="@style/image_detail_icon"/>
+        <TextView
+            android:id="@+id/text_view_temp_night_value"
+            style="@style/text_view_detail_image"
+            android:text="@string/temp"
+            app:layout_constraintEnd_toEndOf="@id/image_night"
+            app:layout_constraintStart_toStartOf="@id/image_night"
+            app:layout_constraintTop_toBottomOf="@id/image_night" />
 
-    <TextView
-        android:id="@+id/text_view_temp_night_value"
-        android:text="@string/temp"
-        app:layout_constraintStart_toStartOf="@id/image_night"
-        app:layout_constraintEnd_toEndOf="@id/image_night"
-        app:layout_constraintTop_toBottomOf="@id/image_night"
-        style="@style/text_view_detail_image" />
+        <TextView
+            android:id="@+id/text_view_temp_night_text"
+            style="@style/text_view_detail_image"
+            android:text="@string/temp_night_text"
+            app:layout_constraintEnd_toEndOf="@id/image_night"
+            app:layout_constraintStart_toStartOf="@id/image_night"
+            app:layout_constraintTop_toBottomOf="@id/text_view_temp_night_value" />
 
-    <TextView
-        android:id="@+id/text_view_temp_night_text"
-        android:text="@string/temp_night_text"
-        app:layout_constraintStart_toStartOf="@id/image_night"
-        app:layout_constraintEnd_toEndOf="@id/image_night"
-        app:layout_constraintTop_toBottomOf="@id/text_view_temp_night_value"
-        style="@style/text_view_detail_image" />
+        <ImageView
+            android:id="@+id/image_sunrise"
+            style="@style/image_detail_icon"
+            android:contentDescription="@string/icon_sunrise"
+            android:src="@drawable/sunrise"
+            app:layout_constraintEnd_toStartOf="@id/image_sunset"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_temp_day_text" />
 
+        <TextView
+            android:id="@+id/text_view_sunrise_value"
+            style="@style/text_view_detail_image"
+            android:text="@string/sunrise_value"
+            app:layout_constraintEnd_toEndOf="@id/image_sunrise"
+            app:layout_constraintStart_toStartOf="@id/image_sunrise"
+            app:layout_constraintTop_toBottomOf="@id/image_sunrise" />
 
-    <ImageView
-        android:id="@+id/image_sunrise"
-        android:src="@drawable/sunrise"
-        app:layout_constraintEnd_toStartOf="@id/image_sunset"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_temp_day_text"
-        android:contentDescription="@string/icon_sunrise"
-        style="@style/image_detail_icon"/>
+        <TextView
+            android:id="@+id/text_view_sunrise_text"
+            style="@style/text_view_detail_image"
+            android:text="@string/sunrise_text"
+            app:layout_constraintEnd_toEndOf="@id/text_view_sunrise_value"
+            app:layout_constraintStart_toStartOf="@id/text_view_sunrise_value"
+            app:layout_constraintTop_toBottomOf="@id/text_view_sunrise_value" />
 
-    <TextView
-        android:id="@+id/text_view_sunrise_value"
-        android:text="@string/sunrise_value"
-        app:layout_constraintTop_toBottomOf="@id/image_sunrise"
-        app:layout_constraintStart_toStartOf="@id/image_sunrise"
-        app:layout_constraintEnd_toEndOf="@id/image_sunrise"
-        style="@style/text_view_detail_image" />
-    <TextView
-        android:id="@+id/text_view_sunrise_text"
-        android:text="@string/sunrise_text"
-        app:layout_constraintTop_toBottomOf="@id/text_view_sunrise_value"
-        app:layout_constraintStart_toStartOf="@id/text_view_sunrise_value"
-        app:layout_constraintEnd_toEndOf="@id/text_view_sunrise_value"
-        style="@style/text_view_detail_image" />
+        <ImageView
+            android:id="@+id/image_sunset"
+            style="@style/image_detail_icon"
+            android:contentDescription="@string/icon_sunset"
+            android:src="@drawable/sunset"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image_sunrise"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_temp_evening_text" />
 
-    <ImageView
-        android:id="@+id/image_sunset"
-        android:src="@drawable/sunset"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/image_sunrise"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_temp_evening_text"
-        android:contentDescription="@string/icon_sunset"
-        style="@style/image_detail_icon"/>
+        <TextView
+            android:id="@+id/text_view_sunset_value"
+            style="@style/text_view_detail_image"
+            android:text="@string/sunset_value"
+            app:layout_constraintEnd_toEndOf="@id/image_sunset"
+            app:layout_constraintStart_toStartOf="@id/image_sunset"
+            app:layout_constraintTop_toBottomOf="@id/image_sunset" />
 
-    <TextView
-        android:id="@+id/text_view_sunset_value"
-        android:text="@string/sunset_value"
-        app:layout_constraintTop_toBottomOf="@id/image_sunset"
-        app:layout_constraintStart_toStartOf="@id/image_sunset"
-        app:layout_constraintEnd_toEndOf="@id/image_sunset"
-        style="@style/text_view_detail_image" />
-    <TextView
-        android:id="@+id/text_view_sunset_text"
-        android:text="@string/sunset_text"
-        app:layout_constraintTop_toBottomOf="@id/text_view_sunset_value"
-        app:layout_constraintStart_toStartOf="@id/text_view_sunset_value"
-        app:layout_constraintEnd_toEndOf="@id/text_view_sunset_value"
-        style="@style/text_view_detail_image" />
+        <TextView
+            android:id="@+id/text_view_sunset_text"
+            style="@style/text_view_detail_image"
+            android:text="@string/sunset_text"
+            app:layout_constraintEnd_toEndOf="@id/text_view_sunset_value"
+            app:layout_constraintStart_toStartOf="@id/text_view_sunset_value"
+            app:layout_constraintTop_toBottomOf="@id/text_view_sunset_value" />
 
-    <View
-        android:id="@+id/divider4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_view_sunset_text"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/divider" />
+        <View
+            android:id="@+id/divider4"
+            style="@style/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_sunset_text" />
 
-    <TextView
-        android:id="@+id/text_view_advanced_forecast"
-        android:layout_marginTop="@dimen/app_small_margin"
-        android:textSize="@dimen/text_size_app"
-        android:text="@string/advanced_forecast_text"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider4"
-        style="@style/text_view_detail_image"/>
+        <TextView
+            android:id="@+id/text_view_advanced_forecast"
+            style="@style/text_view_detail_image"
+            android:layout_marginTop="@dimen/app_small_margin"
+            android:gravity="center"
+            android:text="@string/advanced_forecast_text"
+            android:textSize="@dimen/text_size_app"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider4" />
 
-    <View
-        android:id="@+id/divider5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_view_advanced_forecast"
-        style="@style/divider"/>
+        <View
+            android:id="@+id/divider5"
+            style="@style/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_advanced_forecast" />
 
-    <ImageView
-        android:id="@+id/image_view_pressure"
-        android:layout_marginTop="@dimen/app_margin"
-        android:src="@drawable/pressure"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider5"
-        app:layout_constraintEnd_toStartOf="@id/image_view_wind_speed"
-        android:contentDescription="@string/icon_pressure"
-        style="@style/image_detail_icon"/>
-    <TextView
-        android:id="@+id/text_view_pressure_value"
-        android:text="@string/pressure_value"
-        app:layout_constraintEnd_toEndOf="@+id/image_view_pressure"
-        app:layout_constraintStart_toStartOf="@id/image_view_pressure"
-        app:layout_constraintTop_toBottomOf="@id/image_view_pressure"
-        style="@style/text_view_detail_image" />
+        <ImageView
+            android:id="@+id/image_view_pressure"
+            style="@style/image_detail_icon"
+            android:layout_marginTop="@dimen/app_margin"
+            android:contentDescription="@string/icon_pressure"
+            android:src="@drawable/pressure"
+            app:layout_constraintEnd_toStartOf="@id/image_view_wind_speed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider5" />
 
-    <TextView
-        android:id="@+id/text_view_text_pressure"
-        android:text="@string/pressure_text"
-        app:layout_constraintEnd_toEndOf="@+id/text_view_pressure_value"
-        app:layout_constraintStart_toStartOf="@id/text_view_pressure_value"
-        app:layout_constraintTop_toBottomOf="@id/text_view_pressure_value"
-        style="@style/text_view_detail_image" />
+        <TextView
+            android:id="@+id/text_view_pressure_value"
+            style="@style/text_view_detail_image"
+            android:text="@string/pressure_value"
+            app:layout_constraintEnd_toEndOf="@+id/image_view_pressure"
+            app:layout_constraintStart_toStartOf="@id/image_view_pressure"
+            app:layout_constraintTop_toBottomOf="@id/image_view_pressure" />
 
-    <ImageView
-        android:id="@+id/image_view_wind_speed"
-        android:layout_marginTop="@dimen/app_margin"
-        android:src="@drawable/wind_speed"
-        app:layout_constraintStart_toEndOf="@id/image_view_pressure"
-        app:layout_constraintEnd_toStartOf="@id/image_view_clouds"
-        app:layout_constraintTop_toBottomOf="@id/divider5"
-        android:contentDescription="@string/icon_wind"
-        style="@style/image_detail_icon"/>
-    <TextView
-        android:id="@+id/text_view_wind_speed_value"
-        android:text="@string/wind_speed_value"
-        app:layout_constraintEnd_toEndOf="@id/image_view_wind_speed"
-        app:layout_constraintStart_toStartOf="@id/image_view_wind_speed"
-        app:layout_constraintTop_toBottomOf="@id/image_view_wind_speed"
-        style="@style/text_view_detail_image" />
+        <TextView
+            android:id="@+id/text_view_text_pressure"
+            style="@style/text_view_detail_image"
+            android:text="@string/pressure_text"
+            app:layout_constraintEnd_toEndOf="@+id/text_view_pressure_value"
+            app:layout_constraintStart_toStartOf="@id/text_view_pressure_value"
+            app:layout_constraintTop_toBottomOf="@id/text_view_pressure_value" />
 
-    <TextView
-        android:id="@+id/text_view_wind_speed_text"
-        android:text="@string/wind_speed_text"
-        app:layout_constraintEnd_toEndOf="@id/text_view_wind_speed_value"
-        app:layout_constraintStart_toStartOf="@id/text_view_wind_speed_value"
-        app:layout_constraintTop_toBottomOf="@id/text_view_wind_speed_value"
-        style="@style/text_view_detail_image" />
+        <ImageView
+            android:id="@+id/image_view_wind_speed"
+            style="@style/image_detail_icon"
+            android:layout_marginTop="@dimen/app_margin"
+            android:contentDescription="@string/icon_wind"
+            android:src="@drawable/wind_speed"
+            app:layout_constraintEnd_toStartOf="@id/image_view_clouds"
+            app:layout_constraintStart_toEndOf="@id/image_view_pressure"
+            app:layout_constraintTop_toBottomOf="@id/divider5" />
 
+        <TextView
+            android:id="@+id/text_view_wind_speed_value"
+            style="@style/text_view_detail_image"
+            android:text="@string/wind_speed_value"
+            app:layout_constraintEnd_toEndOf="@id/image_view_wind_speed"
+            app:layout_constraintStart_toStartOf="@id/image_view_wind_speed"
+            app:layout_constraintTop_toBottomOf="@id/image_view_wind_speed" />
 
-    <ImageView
-        android:id="@+id/image_view_clouds"
-        android:layout_marginTop="@dimen/app_margin"
-        android:src="@drawable/cloud"
-        app:layout_constraintEnd_toStartOf="@id/image_view_dew_point"
-        app:layout_constraintStart_toEndOf="@id/image_view_wind_speed"
-        app:layout_constraintTop_toBottomOf="@id/divider5"
-        android:contentDescription="@string/icon_clouds"
-        style="@style/image_detail_icon"/>
+        <TextView
+            android:id="@+id/text_view_wind_speed_text"
+            style="@style/text_view_detail_image"
+            android:text="@string/wind_speed_text"
+            app:layout_constraintEnd_toEndOf="@id/text_view_wind_speed_value"
+            app:layout_constraintStart_toStartOf="@id/text_view_wind_speed_value"
+            app:layout_constraintTop_toBottomOf="@id/text_view_wind_speed_value" />
 
+        <ImageView
+            android:id="@+id/image_view_clouds"
+            style="@style/image_detail_icon"
+            android:layout_marginTop="@dimen/app_margin"
+            android:contentDescription="@string/icon_clouds"
+            android:src="@drawable/cloud"
+            app:layout_constraintEnd_toStartOf="@id/image_view_dew_point"
+            app:layout_constraintStart_toEndOf="@id/image_view_wind_speed"
+            app:layout_constraintTop_toBottomOf="@id/divider5" />
 
-    <TextView
-        android:id="@+id/text_view_clouds_value"
-        android:text="@string/clouds_value"
-        app:layout_constraintEnd_toEndOf="@+id/image_view_clouds"
-        app:layout_constraintStart_toStartOf="@+id/image_view_clouds"
-        app:layout_constraintTop_toBottomOf="@+id/image_view_clouds"
-        style="@style/text_view_detail_image" />
+        <TextView
+            android:id="@+id/text_view_clouds_value"
+            style="@style/text_view_detail_image"
+            android:text="@string/clouds_value"
+            app:layout_constraintEnd_toEndOf="@+id/image_view_clouds"
+            app:layout_constraintStart_toStartOf="@+id/image_view_clouds"
+            app:layout_constraintTop_toBottomOf="@+id/image_view_clouds" />
 
-    <TextView
-        android:id="@+id/text_view_clouds_text"
-        android:text="@string/clouds_text"
-        app:layout_constraintEnd_toEndOf="@+id/text_view_clouds_value"
-        app:layout_constraintStart_toStartOf="@+id/text_view_clouds_value"
-        app:layout_constraintTop_toBottomOf="@id/text_view_clouds_value"
-        style="@style/text_view_detail_image" />
+        <TextView
+            android:id="@+id/text_view_clouds_text"
+            style="@style/text_view_detail_image"
+            android:text="@string/clouds_text"
+            app:layout_constraintEnd_toEndOf="@+id/text_view_clouds_value"
+            app:layout_constraintStart_toStartOf="@+id/text_view_clouds_value"
+            app:layout_constraintTop_toBottomOf="@id/text_view_clouds_value" />
 
-    <ImageView
-        android:id="@+id/image_view_dew_point"
-        android:layout_marginTop="@dimen/app_margin"
-        android:src="@drawable/dew_point"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/image_view_clouds"
-        app:layout_constraintTop_toBottomOf="@id/divider5"
-        android:contentDescription="@string/icon_dew_point"
-        style="@style/image_detail_icon"/>
-    <TextView
-        android:id="@+id/text_view_dew_point_value"
-        android:text="@string/temp"
-        app:layout_constraintEnd_toEndOf="@id/image_view_dew_point"
-        app:layout_constraintStart_toStartOf="@id/image_view_dew_point"
-        app:layout_constraintTop_toBottomOf="@id/image_view_dew_point"
-        style="@style/text_view_detail_image" />
+        <ImageView
+            android:id="@+id/image_view_dew_point"
+            style="@style/image_detail_icon"
+            android:layout_marginTop="@dimen/app_margin"
+            android:contentDescription="@string/icon_dew_point"
+            android:src="@drawable/dew_point"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image_view_clouds"
+            app:layout_constraintTop_toBottomOf="@id/divider5" />
 
-    <TextView
-        android:id="@+id/text_view_dew_point_text"
-        android:text="@string/dew_point_text"
-        app:layout_constraintEnd_toEndOf="@id/text_view_dew_point_value"
-        app:layout_constraintStart_toStartOf="@id/text_view_dew_point_value"
-        app:layout_constraintTop_toBottomOf="@id/text_view_dew_point_value"
-        style="@style/text_view_detail_image" />
+        <TextView
+            android:id="@+id/text_view_dew_point_value"
+            style="@style/text_view_detail_image"
+            android:text="@string/temp"
+            app:layout_constraintEnd_toEndOf="@id/image_view_dew_point"
+            app:layout_constraintStart_toStartOf="@id/image_view_dew_point"
+            app:layout_constraintTop_toBottomOf="@id/image_view_dew_point" />
 
-    <ImageButton
-        android:id="@+id/button_send_weather"
-        android:src="@drawable/ic_baseline_share_24"
-        android:backgroundTint="@color/grey"
-        app:layout_constraintTop_toBottomOf="@id/text_view_dew_point_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        style="@style/image_detail_icon"
-        android:contentDescription="@string/send_weather_btn" />
+        <TextView
+            android:id="@+id/text_view_dew_point_text"
+            style="@style/text_view_detail_image"
+            android:text="@string/dew_point_text"
+            app:layout_constraintEnd_toEndOf="@id/text_view_dew_point_value"
+            app:layout_constraintStart_toStartOf="@id/text_view_dew_point_value"
+            app:layout_constraintTop_toBottomOf="@id/text_view_dew_point_value" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+        <ImageButton
+            android:id="@+id/button_send_weather"
+            style="@style/image_detail_icon"
+            android:backgroundTint="@color/grey"
+            android:contentDescription="@string/send_weather_btn"
+            android:src="@drawable/ic_baseline_share_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_dew_point_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
