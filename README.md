@@ -2,6 +2,7 @@
 Приложение показывает погоду по городам. Можно выбрать город, по которому будут приходить уведомления о погоде, вся информация сохраняется в бд.API - openweathermap.api
 
 
+
 NavigationComponent,Retrofit,MVVM,Clean Architecture,Room,SharedPreferences,ViewPager2,CustomView,Worker,Coroutines
 
 
